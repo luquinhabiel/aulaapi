@@ -1,6 +1,7 @@
 package com.lucas.aulaapi.resources;
 
 import java.net.URI;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,11 @@ public class ProdutoResources {
 	
 	@Autowired 
 	private ProdutoService produtoService;
+	
+	@GetMapping()
+	public List<Produto> listar(){
+		return produtoService.listarTodos();
+	}
 	
 	@PostMapping()
 	public ResponseEntity<Void> insert(@RequestBody Produto obj){
